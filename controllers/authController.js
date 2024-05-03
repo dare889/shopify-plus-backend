@@ -2,7 +2,7 @@
 
 const bcrypt = require('bcryptjs'); // For password hashing
 const jwt = require('jsonwebtoken'); // For generating JWT tokens
-const { User } = require('../models'); // Import the User model
+const User = require('../models/User'); // Import the User model
 
 const { JWT_SECRET } = process.env; // Secret key for JWT token
 

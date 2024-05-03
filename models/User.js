@@ -1,21 +1,34 @@
-const { Sequelize, DataTypes } = require('sequelize');
-const sequelize = new Sequelize('postgresql://user:pass@localhost:5432/database');
+// User.js
+
+const { DataTypes } = require('sequelize');
+const sequelize = require('../config/database');
 
 const User = sequelize.define('User', {
-  firstName: {
-    type: DataTypes.STRING,
-    allowNull: false,
+  // Define model attributes
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
   },
-  lastName: {
+  username: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: false
   },
   email: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true,
+    unique: true
   },
-  // Add other fields as needed
+  password: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  firstname: {
+    type: DataTypes.STRING
+  },
+  lastname: {
+    type: DataTypes.STRING
+  }
 });
 
 module.exports = User;
